@@ -2,7 +2,7 @@
 set -e
 
 WORKDIR="$(mktemp -d)"
-SERVERS=(114.114.114.114 114.114.115.115 180.76.76.76)
+SERVERS=(114.114.114.114 114.114.115.115)
 # Not using best possible CDN pop: 1.2.4.8 210.2.4.8 223.5.5.5 223.6.6.6
 # Dirty cache: 119.29.29.29 182.254.116.116
 
@@ -10,14 +10,9 @@ CONF_WITH_SERVERS=(accelerated-domains.china google.china apple.china)
 CONF_SIMPLE=(bogus-nxdomain.china)
 
 echo "Downloading latest configurations..."
-git clone --depth=1 https://git.coding.net/felixonmars/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 https://pagure.io/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 https://github.com/felixonmars/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 https://bitbucket.org/felixonmars/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 https://gitee.com/felixonmars/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 https://gitlab.com/felixonmars/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 https://code.aliyun.com/felixonmars/dnsmasq-china-list.git "$WORKDIR"
-#git clone --depth=1 http://repo.or.cz/dnsmasq-china-list.git "$WORKDIR"
+
+git clone --depth=1 https://github.com/trepwq/dnsmasq-chinalist.git "$WORKDIR"
+
 
 echo "Removing old configurations..."
 for _conf in "${CONF_WITH_SERVERS[@]}" "${CONF_SIMPLE[@]}"; do
