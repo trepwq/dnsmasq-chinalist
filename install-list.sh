@@ -36,7 +36,7 @@ if hash systemctl 2>/dev/null; then
 elif hash service 2>/dev/null; then
   service dnsmasq restart
 else
-  echo "Now please restart dnsmasq since I don't know how to do it."
+  echo "auto restart dnsmasq failed, please restart dnsmasq manually."
 fi
 
 echo "Cleaning up..."
